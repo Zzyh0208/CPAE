@@ -1,0 +1,31 @@
+seed: 17
+device: cpu
+network:
+  history: 12
+  features: 6
+model:
+  hidden: 128
+  code_dim: 128
+  heads: 4
+control:
+  period_seconds: 180
+  waves: 3
+  measures: 3
+  max_candidates: 64
+  max_nodes: 32
+  max_edits: 8
+  threshold: 0.63
+  calibration_pairs: 4
+  calibration_steps: 5
+  calibration_lr: 0.05
+training:
+  horizon: 10
+  batch_size: 512
+  replay_capacity: 1000000
+  learning_rate: 0.0003
+  gamma: 0.99
+  encoder_updates: 100000
+  cold_start_updates: 50000
+  online_updates: 200000
+  warmup_updates: 2048
+  validation_interval: 1000
