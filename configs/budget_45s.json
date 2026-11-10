@@ -1,0 +1,1 @@
+{"max_candidates":64,"max_nodes":32,"max_edits":8,"probe_pairs":4,"calibration_steps":5,"threshold":0.63,"calibration_enabled":true}

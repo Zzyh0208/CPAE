@@ -1,0 +1,30 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"CAPE network manifest",
+  "type":"object",
+  "required":["name","sumocfg","delay_scale","nodes","adjacency"],
+  "properties":{
+    "name":{"type":"string"},
+    "sumocfg":{"type":"string"},
+    "binary":{"type":"string","default":"sumo"},
+    "delay_scale":{"type":"number","exclusiveMinimum":0},
+    "waiting_scale":{"type":"number","exclusiveMinimum":0,"default":180},
+    "nodes":{"type":"array","minItems":1,"items":{
+      "type":"object","required":["id","lanes"],
+      "properties":{
+        "id":{"type":"string"},"lanes":{"type":"array","minItems":1,"items":{"type":"string"}},
+        "signal":{"type":["string","null"]},"meter":{"type":["string","null"]},
+        "signal_rules":{"type":"object"},"meter_rules":{"type":"object"},
+        "diversion":{"type":"array","items":{"type":"object","required":["edge","routes"],"properties":{
+          "edge":{"type":"string"},"routes":{"type":"array","items":{"type":"array","minItems":2,"items":{"type":"string"}}}
+        }}}
+      }
+    }},
+    "adjacency":{"type":"array","items":{"type":"array","items":{"type":"number"}}},
+    "protocol":{"type":"object","properties":{
+      "normal_end":{"type":"integer","default":900},"recovery_start":{"type":"integer","default":1800},
+      "end":{"type":"integer","default":3600},"period":{"type":"integer","default":180},
+      "sample_interval":{"type":"integer","default":15},"metric_interval":{"type":"integer","default":30}
+    }}
+  }
+}

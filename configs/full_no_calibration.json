@@ -1,0 +1,43 @@
+{
+  "model": {
+    "features": 6,
+    "history": 12,
+    "hidden": 128,
+    "heads": 4,
+    "code_dim": 128,
+    "measures": 3,
+    "waves": 3,
+    "action_dim": 8,
+    "max_candidates": 64,
+    "max_nodes": 32,
+    "max_edits": 8,
+    "probe_pairs": 4,
+    "calibration_steps": 5,
+    "calibration_lr": 0.05,
+    "threshold": 0.63,
+    "value_samples": 4,
+    "consistency_weight": 0.1,
+    "effect_weight": 0.2,
+    "distill_weight": 0.1,
+    "encoder_weight": 0.05,
+    "calibration_action_weight": 0.5,
+    "calibration_value_weight": 0.2,
+    "enabled_measures": [
+      true,
+      true,
+      true
+    ],
+    "calibration_enabled": false
+  },
+  "training": {
+    "encoder_data": "../data/encoder/index.json",
+    "encoder_updates": 100000,
+    "cold_start_updates": 50000,
+    "online_updates": 200000,
+    "validation_interval": 1000,
+    "collect_every": 10,
+    "replay_capacity": 1000000,
+    "gamma": 0.99,
+    "alpha": 0.2
+  }
+}
